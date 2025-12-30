@@ -1,0 +1,324 @@
+/* --- Reset & Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #444;
+    background-color: #f9f9f9;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Playfair Display', serif;
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul, ol {
+    list-style-position: inside;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header --- */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: #ff5733; /* Colorlib Orange accent */
+}
+
+/* Desktop Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a:hover {
+    color: #ff5733;
+}
+
+/* Mobile Menu Toggle (Hidden by default) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* --- Main Content --- */
+main {
+    padding: 40px 0;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+/* About Section */
+.profile-card {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    gap: 40px;
+    align-items: center;
+}
+
+.profile-card figure {
+    flex: 1;
+    text-align: center;
+    min-width: 250px;
+}
+
+.profile-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ff5733;
+}
+
+.profile-card figcaption {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #777;
+}
+
+.personal-details {
+    flex: 2;
+    min-width: 300px;
+}
+
+.info-list {
+    list-style: none;
+    margin: 20px 0;
+    padding-left: 0;
+}
+
+.bio p {
+    font-size: 1.1rem;
+}
+
+/* Quote Section */
+.quote-section {
+    text-align: center;
+    padding: 40px;
+    background: #222;
+    color: #fff;
+    border-radius: 8px;
+}
+
+blockquote {
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+cite {
+    display: block;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #ff5733;
+}
+
+/* Resume Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-top: 3px solid #ff5733;
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.card ul {
+    list-style: none;
+}
+
+.card li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* Courses & Neighbors */
+.courses-section ol, .neighbor-section {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.neighbor-section h2, .courses-section h2, .score-section h2 {
+    margin-bottom: 20px;
+}
+
+/* Favorites Section */
+.favorites-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.media-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.media-item {
+    width: 300px;
+    text-align: center;
+    background: #fff;
+    padding: 15px;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.media-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.media-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.media-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+.social-icons {
+    margin: 20px 0;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: #333;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: background 0.3s;
+    color: #fff;
+}
+
+.social-icons a:hover {
+    background: #ff5733;
+}
+
+/* --- Responsive / Mobile Styles --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column; /* Stack logo and menu button */
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .logo {
+        margin-left: 20px; /* Align with container padding */
+    }
+
+    /* Show hamburger on mobile */
+    .menu-toggle {
+        display: flex; 
+        position: absolute;
+        top: 25px;
+        right: 20px;
+    }
+
+    /* Hide the nav links by default on mobile */
+    nav ul {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    nav ul li {
+        margin: 0;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 15px;
+    }
+
+    /* The class JS will toggle to show the menu */
+    nav ul.active {
+        display: flex;
+    }
+}

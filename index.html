@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnowFlakes' Personal Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">My<span>Blog</span>.</div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#favorites">Favorites</a></li>
+                    <li><a href="#social">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="about" class="about-section">
+            <div class="profile-card">
+                <figure>
+                    <img src="https://via.placeholder.com/200" alt="Profile Picture">
+                    <figcaption>Hi, I'm [Your Name]</figcaption>
+                </figure>
+                
+                <div class="personal-details">
+                    <h1>About Me</h1>
+                    <ul class="info-list">
+                        <li><strong>Birthday:</strong> January 1, 2004</li>
+                        <li><strong>Hometown:</strong> Hanoi, Vietnam</li>
+                        <li><strong>University:</strong> FIT - Hanoi University</li>
+                    </ul>
+
+                    <article class="bio">
+                        <p>
+                            I am a passionate <b>web developer</b> who loves building interactive applications. 
+                            My journey began when I wrote my first line of <i>HTML code</i> in high school. 
+                            I believe that <b>technology</b> has the power to change the world for the better. 
+                            Currently, I am focusing on mastering <i>Full Stack Development</i> and AI integration. 
+                            In my free time, I enjoy exploring the <b>streets of Hanoi</b> with my camera.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <blockquote>
+                "The only way to do great work is to love what you do."
+                <cite>- Steve Jobs</cite>
+            </blockquote>
+        </section>
+
+        <section id="resume" class="content-grid">
+            <article class="card">
+                <h2><i class="fas fa-trophy"></i> Achievements</h2>
+                <ul>
+                    <li>Winner of the 2024 Coding Hackathon.</li>
+                    <li>Dean's List for Academic Excellence (2023).</li>
+                    <li>Certified JavaScript Developer.</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                <ul>
+                    <li><strong>Bachelor of IT</strong>, FIT (2022 - Present)</li>
+                    <li><strong>High School Diploma</strong>, Hanoi Amsterdam (2019 - 2022)</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+                <ul>
+                    <li><strong>Intern Web Dev</strong> at TechCorp (Summer 2024)</li>
+                    <li><strong>Freelance Designer</strong> (2022 - Present)</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="courses" class="courses-section">
+            <h2>Current Semester Courses @ FIT</h2>
+            <ol>
+                <li>Introduction to Web Design</li>
+                <li>Data Structures and Algorithms</li>
+                <li>Computer Architecture</li>
+                <li>Linear Algebra</li>
+                <li>Database Management Systems</li>
+            </ol>
+        </section>
+
+        <section class="neighbor-section">
+            <h2><i class="fas fa-users"></i> My Neighbor / TA</h2>
+            <p>
+                Since I am sitting next to my friend <strong>Minh</strong>, I'd like to share a bit about him. 
+                Minh is an avid gamer and a genius at Python. He often helps me debug my code when I get stuck on logic errors.
+                We share a love for mechanical keyboards and often trade keycaps during breaks.
+            </p>
+        </section>
+
+        <section id="favorites" class="favorites-section">
+            <h2>My Top 3 Favorites</h2>
+            <div class="media-grid">
+                <div class="media-item">
+                    <a href="https://www.imdb.com/title/tt0133093/" target="_blank">
+                        <img src="https://via.placeholder.com/300x450?text=The+Matrix" alt="The Matrix Poster">
+                        <h3>The Matrix</h3>
+                    </a>
+                    <p>My favorite sci-fi movie of all time.</p>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.goodreads.com/book/show/3735293-clean-code" target="_blank">
+                        <img src="https://via.placeholder.com/300x450?text=Clean+Code" alt="Clean Code Book Cover">
+                        <h3>Clean Code</h3>
+                    </a>
+                    <p>The book that changed how I write software.</p>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.imdb.com/title/tt0944947/" target="_blank">
+                        <img src="https://via.placeholder.com/300x450?text=Game+of+Thrones" alt="GOT Poster">
+                        <h3>Game of Thrones</h3>
+                    </a>
+                    <p>A masterclass in storytelling.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="score-section">
+            <h2>Previous HTML Test Score</h2>
+            <div class="score-container">
+                <iframe srcdoc="<body style='font-family:sans-serif; text-align:center; padding:20px;'><h2 style='color:green;'>Result: 95/100</h2><p>Excellent work on the DOM manipulation exercise!</p></body>" width="100%" height="150" style="border: 2px dashed #ccc; background: #fff;"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="social">
+        <div class="container">
+            <h3>Let's Connect</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 SnowFlakes. All rights reserved.</p>
+            <p><small><a href="https://validator.w3.org/check?uri=referer">Validate HTML</a></small></p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
