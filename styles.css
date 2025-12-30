@@ -138,8 +138,14 @@ section,
     padding-left: 0;
 }
 
-.bio p {
-    font-size: 1.1rem;
+/* Styling for the new bio list */
+.bio-list {
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.bio-list li {
+    margin-bottom: 8px;
 }
 
 /* Quote Section */
