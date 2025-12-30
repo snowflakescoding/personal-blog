@@ -6,33 +6,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (menuToggle && navList) {
         menuToggle.addEventListener('click', () => {
-            // Toggle the .active class on the ul to show/hide it
             navList.classList.toggle('active');
+            menuToggle.classList.toggle('active'); // Optional: for animation
         });
     }
 
-    // --- 2. Auto-Close Menu on Link Click (Mobile UX) ---
+    // --- 2. Auto-Close Menu on Link Click ---
     const navLinks = document.querySelectorAll('nav ul li a');
-    
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            // Only close if we are on a small screen
             if (window.innerWidth <= 768) {
                 navList.classList.remove('active');
             }
         });
     });
 
-    // --- 3. Smooth Scrolling with Header Offset ---
+    // --- 3. Smooth Scrolling ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
-                // Header height offset (approx 80px)
                 const headerOffset = 80; 
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.scrollY - headerOffset;
@@ -65,6 +61,33 @@ document.addEventListener('DOMContentLoaded', () => {
         authorElement.textContent = `- ${quotes[randomIndex].author}`;
     }
 
-    // --- 5. Console Greeting ---
+    // --- 5. Dark Mode Toggle ---
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+    // Check for saved user preference, if any, on load of the website
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
+
+        if (currentTheme === 'dark-mode') {
+            toggleSwitch.checked = true;
+        }
+    }
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light-mode');
+        }
+    }
+
+    if (toggleSwitch) {
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    }
+
+    // --- 6. Console Greeting ---
     console.log("Welcome to SnowFlakes' Personal Blog! Built with HTML, CSS, and JS.");
 });

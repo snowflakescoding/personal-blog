@@ -1,20 +1,53 @@
+/* --- CSS Variables for Theme Colors --- */
+:root {
+    --bg-color: #f9f9f9;
+    --text-color: #444;
+    --heading-color: #222;
+    --card-bg: #fff;
+    --header-bg: #fff;
+    --shadow-color: rgba(0,0,0,0.05);
+    --accent-color: #ff5733;
+    --quote-bg: #222;
+    --quote-text: #fff;
+    --footer-bg: #222;
+    --footer-text: #fff;
+    --border-color: #eee;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --card-bg: #2d2d2d;
+    --header-bg: #242424;
+    --shadow-color: rgba(0,0,0,0.3);
+    --accent-color: #ff7859; /* Slightly lighter orange for dark mode */
+    --quote-bg: #333;
+    --quote-text: #eee;
+    --footer-bg: #111;
+    --footer-text: #ccc;
+    --border-color: #444;
+}
+
 /* --- Reset & Global Styles --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme switch */
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: #444;
-    background-color: #f9f9f9;
+    color: var(--text-color);
+    background-color: var(--bg-color);
 }
 
 h1, h2, h3, .logo {
     font-family: 'Playfair Display', serif;
-    color: #222;
+    color: var(--heading-color);
 }
 
 a {
@@ -35,8 +68,8 @@ ul, ol {
 
 /* --- Header --- */
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 10px var(--shadow-color);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -55,7 +88,77 @@ header {
 }
 
 .logo span {
-    color: #ff5733; /* Colorlib Orange accent */
+    color: var(--accent-color);
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* --- Theme Toggle Switch --- */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 26px; /* Reduced slightly for better fit */
+    position: relative;
+    width: 50px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.slider .fa-sun {
+    color: #f39c12;
+    font-size: 12px;
+}
+
+.slider .fa-moon {
+    color: #f1c40f;
+    font-size: 12px;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 3px;
+    content: "";
+    height: 20px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 20px;
+    border-radius: 50%;
+    z-index: 1; /* Keep circle above icons */
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
 }
 
 /* Desktop Navigation */
@@ -66,10 +169,10 @@ nav ul {
 }
 
 nav a:hover {
-    color: #ff5733;
+    color: var(--accent-color);
 }
 
-/* Mobile Menu Toggle (Hidden by default) */
+/* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -79,7 +182,7 @@ nav a:hover {
 .menu-toggle .bar {
     width: 25px;
     height: 3px;
-    background-color: #333;
+    background-color: var(--heading-color);
     margin: 4px 0;
     transition: 0.4s;
 }
@@ -99,10 +202,10 @@ section,
 .profile-card {
     display: flex;
     flex-wrap: wrap;
-    background: #fff;
+    background: var(--card-bg);
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px var(--shadow-color);
     gap: 40px;
     align-items: center;
 }
@@ -118,13 +221,18 @@ section,
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #ff5733;
+    border: 5px solid var(--accent-color);
 }
 
 .profile-card figcaption {
     margin-top: 10px;
     font-weight: bold;
     color: #777;
+}
+
+/* Adjust figcaption for dark mode */
+body.dark-mode .profile-card figcaption {
+    color: #bbb;
 }
 
 .personal-details {
@@ -138,7 +246,6 @@ section,
     padding-left: 0;
 }
 
-/* Styling for the new bio list */
 .bio-list {
     margin-top: 20px;
     padding-left: 10px;
@@ -152,8 +259,8 @@ section,
 .quote-section {
     text-align: center;
     padding: 40px;
-    background: #222;
-    color: #fff;
+    background: var(--quote-bg);
+    color: var(--quote-text);
     border-radius: 8px;
 }
 
@@ -168,7 +275,7 @@ cite {
     margin-top: 15px;
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
-    color: #ff5733;
+    color: var(--accent-color);
 }
 
 /* Resume Grid */
@@ -179,11 +286,11 @@ cite {
 }
 
 .card {
-    background: #fff;
+    background: var(--card-bg);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    border-top: 3px solid #ff5733;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    border-top: 3px solid var(--accent-color);
 }
 
 .card h2 {
@@ -197,19 +304,19 @@ cite {
 
 .card li {
     margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 5px;
 }
 
 /* Courses & Neighbors */
 .courses-section ol, .neighbor-section {
-    background: #fff;
+    background: var(--card-bg);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px var(--shadow-color);
 }
 
-.neighbor-section h2, .courses-section h2, .score-section h2 {
+.neighbor-section h2, .courses-section h2 {
     margin-bottom: 20px;
 }
 
@@ -229,16 +336,16 @@ cite {
 .media-item {
     width: 300px;
     text-align: center;
-    background: #fff;
+    background: var(--card-bg);
     padding: 15px;
     transition: transform 0.3s ease;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px var(--shadow-color);
 }
 
 .media-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px var(--shadow-color);
 }
 
 .media-item img {
@@ -256,8 +363,8 @@ cite {
 
 /* Footer */
 footer {
-    background: #222;
-    color: #fff;
+    background: var(--footer-bg);
+    color: var(--footer-text);
     text-align: center;
     padding: 50px 0;
     margin-top: 50px;
@@ -265,13 +372,17 @@ footer {
 
 .social-icons {
     margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .social-icons a {
-    display: inline-block;
+    display: flex; /* Centers SVG/Icon inside */
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
-    line-height: 40px;
     background: #333;
     border-radius: 50%;
     margin: 0 5px;
@@ -280,44 +391,56 @@ footer {
 }
 
 .social-icons a:hover {
-    background: #ff5733;
+    background: var(--accent-color);
+}
+
+/* Adjust social icon bg for dark mode */
+body.dark-mode .social-icons a {
+    background: #444;
+}
+body.dark-mode .social-icons a:hover {
+    background: var(--accent-color);
 }
 
 /* --- Responsive / Mobile Styles --- */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column; /* Stack logo and menu button */
-        align-items: flex-start;
-        position: relative;
+        flex-wrap: wrap; 
+    }
+    
+    .logo {
+        margin-right: auto;
     }
 
-    .logo {
-        margin-left: 20px; /* Align with container padding */
+    .header-controls {
+        display: flex;
+        gap: 15px;
     }
 
     /* Show hamburger on mobile */
     .menu-toggle {
-        display: flex; 
-        position: absolute;
-        top: 25px;
-        right: 20px;
+        display: flex;
     }
 
     /* Hide the nav links by default on mobile */
     nav ul {
-        display: none; /* Hidden by default */
+        display: none; 
         flex-direction: column;
         width: 100%;
         text-align: center;
-        background-color: #fff;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        background-color: var(--card-bg);
+        box-shadow: 0 4px 6px var(--shadow-color);
         padding: 0;
         margin-top: 20px;
+        position: absolute; /* Take out of flow */
+        top: 70px; /* Below header */
+        left: 0;
+        right: 0;
     }
 
     nav ul li {
         margin: 0;
-        border-top: 1px solid #f0f0f0;
+        border-top: 1px solid var(--border-color);
     }
 
     nav ul li a {

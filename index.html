@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SnowFlakes' Personal Blog</title>
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -15,11 +15,24 @@
         <div class="container header-content">
             <div class="logo">SF<span>Blog</span>.</div>
             
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="header-controls">
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
+
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
@@ -37,7 +50,7 @@
         <section id="about" class="about-section">
             <div class="profile-card">
                 <figure>
-                    <img src="/images/nadeshiko.jpg" alt="SnowFlakes Profile Picture">
+                    <img src="358701873_182955434640801_3703214409150819182_n.jpg" alt="SnowFlakes Profile Picture">
                     <figcaption>Hi, I'm SnowFlakes</figcaption>
                 </figure>
                 
@@ -143,27 +156,30 @@
             </div>
         </section>
 
-        <section class="score-section">
-            <h2>Previous HTML Test Score</h2>
-            <div class="score-container">
-                <iframe srcdoc="<body style='font-family:sans-serif; text-align:center; padding:20px;'><h2 style='color:green;'>Result: 95/100</h2><p>Excellent work on the DOM manipulation exercise!</p></body>" height="150" style="width: 100%; border: 2px dashed #ccc; background: #fff;"></iframe>
-            </div>
-        </section>
-
-    </main>
+        </main>
 
     <footer id="social">
         <div class="container">
             <h3>Let's Connect</h3>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/menotouttrinh" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                
+                <a href="https://x.com/snowflakesosu" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                
+                <a href="https://www.instagram.com/thetoast.roasted/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                
+                <a href="https://www.youtube.com/@snowflakesosu" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                
+                <a href="https://github.com/snowflakescoding" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                
+                <a href="https://osu.ppy.sh/users/19207842" target="_blank" title="osu!" class="osu-link">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 20px; height: 20px; fill: white; vertical-align: middle;">
+                        <circle cx="256" cy="256" r="256" fill="#ff66aa"/>
+                        <path d="M352.1,254.6c0-62.5-44.5-91.1-102.3-91.1c-51.5,0-85.3,21.8-85.3,64c0,28.9,18,48,51.8,55.8 c-10,9.7-16.7,23.1-16.7,37.8c0,32.1,29.5,57.1,65.4,57.1c32.7,0,60.3-20.5,64.7-48.1c11.5-6.4,19.9-19.3,19.9-34 C349.6,281.5,351.4,267.4,352.1,254.6z M265.6,359.5c-23.7,0-43-16-43-36.6s19.3-36.6,43-36.6s43,16,43,36.6S289.3,359.5,265.6,359.5 z M258.6,236.4c-39.8-5.8-55.8-23.1-55.8-43c0-23.7,21.2-39.8,55.8-39.8c34.6,0,64.8,25.7,64.8,49.4 C323.3,220.4,293.2,241.6,258.6,236.4z" fill="#ffffff"/>
+                    </svg>
+                </a>
             </div>
             <p>&copy; 2025 SnowFlakes. All rights reserved.</p>
-            <p><small><a href="https://validator.w3.org/check?uri=referer">Validate HTML</a></small></p>
         </div>
     </footer>
 
