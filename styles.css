@@ -89,7 +89,9 @@ main {
     padding: 40px 0;
 }
 
-section {
+section, 
+.quote-section, 
+.content-grid {
     margin-bottom: 60px;
 }
 
