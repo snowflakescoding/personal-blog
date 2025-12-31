@@ -22,7 +22,7 @@ body.dark-mode {
     --card-bg: #2d2d2d;
     --header-bg: #242424;
     --shadow-color: rgba(0,0,0,0.3);
-    --accent-color: #ff7859; /* Slightly lighter orange for dark mode */
+    --accent-color: #ff7859;
     --quote-bg: #333;
     --quote-text: #eee;
     --footer-bg: #111;
@@ -35,7 +35,7 @@ body.dark-mode {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme switch */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -43,6 +43,9 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer stays at bottom */
 }
 
 h1, h2, h3, .logo {
@@ -105,7 +108,7 @@ header {
 
 .theme-switch {
     display: inline-block;
-    height: 26px; /* Reduced slightly for better fit */
+    height: 26px;
     position: relative;
     width: 50px;
 }
@@ -150,7 +153,7 @@ header {
     transition: .4s;
     width: 20px;
     border-radius: 50%;
-    z-index: 1; /* Keep circle above icons */
+    z-index: 1;
 }
 
 input:checked + .slider {
@@ -161,7 +164,7 @@ input:checked + .slider:before {
     transform: translateX(22px);
 }
 
-/* Desktop Navigation */
+/* --- Navigation --- */
 nav ul {
     display: flex;
     list-style: none;
@@ -170,6 +173,13 @@ nav ul {
 
 nav a:hover {
     color: var(--accent-color);
+}
+
+/* Active Page Highlight */
+nav a.current-page {
+    color: var(--accent-color);
+    font-weight: bold;
+    border-bottom: 2px solid var(--accent-color);
 }
 
 /* Mobile Menu Toggle */
@@ -190,6 +200,7 @@ nav a:hover {
 /* --- Main Content --- */
 main {
     padding: 40px 0;
+    flex: 1; /* Pushes footer down */
 }
 
 section, 
@@ -198,7 +209,64 @@ section,
     margin-bottom: 60px;
 }
 
-/* About Section */
+/* --- NEW: Welcome / Hero Page Styles --- */
+.welcome-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    margin-top: 20px;
+}
+
+.welcome-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--heading-color);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* --- About Page Styles --- */
 .profile-card {
     display: flex;
     flex-wrap: wrap;
@@ -230,7 +298,6 @@ section,
     color: #777;
 }
 
-/* Adjust figcaption for dark mode */
 body.dark-mode .profile-card figcaption {
     color: #bbb;
 }
@@ -278,7 +345,7 @@ cite {
     color: var(--accent-color);
 }
 
-/* Resume Grid */
+/* --- Resume Styles --- */
 .content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -308,7 +375,7 @@ cite {
     padding-bottom: 5px;
 }
 
-/* Courses & Neighbors */
+/* --- Courses & Neighbors Styles --- */
 .courses-section ol, .neighbor-section {
     background: var(--card-bg);
     padding: 30px;
@@ -320,7 +387,7 @@ cite {
     margin-bottom: 20px;
 }
 
-/* Favorites Section */
+/* --- Favorites Styles --- */
 .favorites-section h2 {
     text-align: center;
     margin-bottom: 40px;
@@ -361,7 +428,7 @@ cite {
     margin-bottom: 5px;
 }
 
-/* Footer */
+/* --- Footer --- */
 footer {
     background: var(--footer-bg);
     color: var(--footer-text);
@@ -378,7 +445,7 @@ footer {
 }
 
 .social-icons a {
-    display: flex; /* Centers SVG/Icon inside */
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 40px;
@@ -394,7 +461,6 @@ footer {
     background: var(--accent-color);
 }
 
-/* Adjust social icon bg for dark mode */
 body.dark-mode .social-icons a {
     background: #444;
 }
@@ -402,7 +468,14 @@ body.dark-mode .social-icons a:hover {
     background: var(--accent-color);
 }
 
-/* --- Responsive / Mobile Styles --- */
+.social-img-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: block;
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
     .header-content {
         flex-wrap: wrap; 
@@ -417,12 +490,10 @@ body.dark-mode .social-icons a:hover {
         gap: 15px;
     }
 
-    /* Show hamburger on mobile */
     .menu-toggle {
         display: flex;
     }
 
-    /* Hide the nav links by default on mobile */
     nav ul {
         display: none; 
         flex-direction: column;
@@ -432,8 +503,8 @@ body.dark-mode .social-icons a:hover {
         box-shadow: 0 4px 6px var(--shadow-color);
         padding: 0;
         margin-top: 20px;
-        position: absolute; /* Take out of flow */
-        top: 70px; /* Below header */
+        position: absolute;
+        top: 70px;
         left: 0;
         right: 0;
     }
@@ -448,8 +519,11 @@ body.dark-mode .social-icons a:hover {
         padding: 15px;
     }
 
-    /* The class JS will toggle to show the menu */
     nav ul.active {
         display: flex;
+    }
+    
+    .welcome-section h1 {
+        font-size: 2rem;
     }
 }

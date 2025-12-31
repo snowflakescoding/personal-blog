@@ -1,47 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Mobile Menu Toggle ---
+    // --- 1. Navigation Active State (For Multi-Page) ---
+    const currentLocation = window.location.pathname;
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    navLinks.forEach(link => {
+        // Check if the link href matches the current file name
+        if(link.href.includes(currentLocation) && currentLocation !== '/') {
+            link.classList.add('current-page');
+        }
+        // Special case for root/index
+        if (currentLocation === '/' && link.getAttribute('href') === 'index.html') {
+             link.classList.add('current-page');
+        }
+    });
+
+    // --- 2. Mobile Menu Toggle ---
     const menuToggle = document.querySelector('#mobile-menu');
     const navList = document.querySelector('nav ul');
 
     if (menuToggle && navList) {
         menuToggle.addEventListener('click', () => {
             navList.classList.toggle('active');
-            menuToggle.classList.toggle('active'); // Optional: for animation
+            menuToggle.classList.toggle('active'); 
         });
     }
 
-    // --- 2. Auto-Close Menu on Link Click ---
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                navList.classList.remove('active');
-            }
-        });
-    });
-
-    // --- 3. Smooth Scrolling ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                const headerOffset = 80; 
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-            }
-        });
-    });
-
-    // --- 4. Random Quote Generator ---
+    // --- 3. Random Quote Generator ---
     const quotes = [
         { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
         { text: "Code is like humor. When you have to explain it, it’s bad.", author: "Cory House" },
@@ -61,14 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
         authorElement.textContent = `- ${quotes[randomIndex].author}`;
     }
 
-    // --- 5. Dark Mode Toggle ---
+    // --- 4. Dark Mode Toggle ---
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
     const currentTheme = localStorage.getItem('theme');
 
-    // Check for saved user preference, if any, on load of the website
     if (currentTheme) {
         document.body.classList.add(currentTheme);
-
         if (currentTheme === 'dark-mode') {
             toggleSwitch.checked = true;
         }
@@ -88,6 +71,5 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleSwitch.addEventListener('change', switchTheme, false);
     }
 
-    // --- 6. Console Greeting ---
-    console.log("Welcome to SnowFlakes' Personal Blog! Built with HTML, CSS, and JS.");
+    console.log("Welcome to SnowFlakes' Blog!");
 });
