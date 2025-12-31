@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Navigation Active State (For Multi-Page) ---
+    // --- 1. Navigation Active State ---
     const currentLocation = window.location.pathname;
     const navLinks = document.querySelectorAll('nav ul li a');
 
     navLinks.forEach(link => {
-        // Check if the link href matches the current file name
         if(link.href.includes(currentLocation) && currentLocation !== '/') {
             link.classList.add('current-page');
         }
-        // Special case for root/index
         if (currentLocation === '/' && link.getAttribute('href') === 'index.html') {
              link.classList.add('current-page');
         }
@@ -69,6 +67,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (toggleSwitch) {
         toggleSwitch.addEventListener('change', switchTheme, false);
+    }
+
+    // --- 5. Accordion (Dropdown) for Courses ---
+    const acc = document.getElementsByClassName("accordion");
+
+    for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the panel */
+            this.classList.toggle("active");
+
+            /* Toggle between hiding and showing the active panel */
+            const panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
     }
 
     console.log("Welcome to SnowFlakes' Blog!");

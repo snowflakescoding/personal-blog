@@ -224,7 +224,6 @@ section,
     margin-bottom: 20px;
 }
 
-/* NEW: Style for the Welcome Giphy */
 .welcome-gif {
     max-width: 100%;
     height: auto;
@@ -383,12 +382,75 @@ cite {
     padding-bottom: 5px;
 }
 
-/* --- Courses & People Styles --- */
+/* --- Courses & Accordion Styles --- */
 .courses-section ol, .people-section {
     background: var(--card-bg);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+/* Accordion Button */
+.accordion {
+    background-color: var(--card-bg);
+    color: var(--heading-color);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1rem;
+    transition: 0.4s;
+    border-bottom: 1px solid var(--border-color);
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Hover & Active State */
+.accordion:hover, .accordion.active {
+    background-color: #eee;
+}
+
+body.dark-mode .accordion:hover, body.dark-mode .accordion.active {
+    background-color: #333;
+}
+
+/* Panel (Hidden Content) */
+.panel {
+    padding: 0 18px;
+    background-color: var(--card-bg);
+    display: none;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* Semester Grid inside Panel */
+.semester-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.semester-box {
+    background: var(--bg-color); /* Contrast against card background */
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.semester-box h3 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+body.dark-mode .semester-box {
+    background: #222;
 }
 
 .people-section h2, .courses-section h2 {
