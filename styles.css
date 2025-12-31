@@ -45,7 +45,7 @@ body {
     background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures footer stays at bottom */
+    min-height: 100vh;
 }
 
 h1, h2, h3, .logo {
@@ -57,6 +57,10 @@ a {
     text-decoration: none;
     color: inherit;
     transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
 }
 
 ul, ol {
@@ -171,10 +175,6 @@ nav ul {
     gap: 25px;
 }
 
-nav a:hover {
-    color: var(--accent-color);
-}
-
 /* Active Page Highlight */
 nav a.current-page {
     color: var(--accent-color);
@@ -200,7 +200,7 @@ nav a.current-page {
 /* --- Main Content --- */
 main {
     padding: 40px 0;
-    flex: 1; /* Pushes footer down */
+    flex: 1;
 }
 
 section, 
@@ -209,7 +209,7 @@ section,
     margin-bottom: 60px;
 }
 
-/* --- NEW: Welcome / Hero Page Styles --- */
+/* --- Welcome / Hero Page Styles --- */
 .welcome-section {
     text-align: center;
     padding: 60px 20px;
@@ -222,6 +222,14 @@ section,
 .welcome-section h1 {
     font-size: 3rem;
     margin-bottom: 20px;
+}
+
+/* NEW: Style for the Welcome Giphy */
+.welcome-gif {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 30px;
 }
 
 .welcome-section p {
@@ -375,15 +383,15 @@ cite {
     padding-bottom: 5px;
 }
 
-/* --- Courses & Neighbors Styles --- */
-.courses-section ol, .neighbor-section {
+/* --- Courses & People Styles --- */
+.courses-section ol, .people-section {
     background: var(--card-bg);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 5px var(--shadow-color);
 }
 
-.neighbor-section h2, .courses-section h2 {
+.people-section h2, .courses-section h2 {
     margin-bottom: 20px;
 }
 
